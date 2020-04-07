@@ -265,5 +265,33 @@
     font-weight: 400;
     font-size: 15px;
 }
-/* Recent Projects / */
+/* Recent Projects end */
 
+
+/* Courses Component Start */
+.courseTitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.courseDes {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.courseDetails {
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #0073e6;
+}
+
+.courseDetails:hover {
+    text-decoration: none;
+    color: #484848;
+}
+
+/* Courses Component End */

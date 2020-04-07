@@ -5,6 +5,7 @@ import TopNavigation from './components/TopNavigation/TopNavigation';
 import Analysis from "./components/Analysis/Analysis";
 import Summery from "./components/Summery/Summery";
 import RecentProjects from "./components/RecentProjects/RecentProjects";
+import Courses from "./components/Courses/Courses";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
             <Analysis />
             <Summery />
             <RecentProjects />
+            <Courses />
         </div>
     );
 }
