@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import TopBanner from './components/TopBanner/TopBanner';
+import Services from './components/Services/Services';
+import TopNavigation from './components/TopNavigation/TopNavigation';
+import Analysis from "./components/Analysis/Analysis";
+import Summery from "./components/Summery/Summery";
+import RecentProjects from "./components/RecentProjects/RecentProjects";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div>
+            <TopNavigation />
+            <TopBanner />
+            <Services />
+            <Analysis />
+            <Summery />
+            <RecentProjects />
+        </div>
+    );
 }
 
 export default App;
+
+
