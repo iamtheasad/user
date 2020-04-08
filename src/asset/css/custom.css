@@ -295,3 +295,33 @@
 }
 
 /* Courses Component End */
+
+
+/* Video Component Start */
+.video_section {
+    padding: 100px 0px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 115, 230, 0.2);
+}
+
+.videoTitle {
+    font-size: 22px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #0073E6;
+    margin-bottom: 2rem;
+}
+
+.videoDes {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #484848;
+}
+
+.playBtn {
+    color: #0073e6;
+    cursor: pointer;
+    font-size: 48px;
+}
+
+/* Video Component End */

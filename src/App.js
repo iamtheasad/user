@@ -6,18 +6,20 @@ import Analysis from "./components/Analysis/Analysis";
 import Summery from "./components/Summery/Summery";
 import RecentProjects from "./components/RecentProjects/RecentProjects";
 import Courses from "./components/Courses/Courses";
+import Video from "./components/Video/Video";
 
 
 function App() {
     return (
         <div>
-            <TopNavigation />
-            <TopBanner />
-            <Services />
-            <Analysis />
-            <Summery />
-            <RecentProjects />
-            <Courses />
+            <TopNavigation/>
+            <TopBanner/>
+            <Services/>
+            <Analysis/>
+            <Summery/>
+            <RecentProjects/>
+            <Courses/>
+            <Video/>
         </div>
     );
 }
