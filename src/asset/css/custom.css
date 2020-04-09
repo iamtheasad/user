@@ -265,6 +265,7 @@
     font-weight: 400;
     font-size: 15px;
 }
+
 /* Recent Projects end */
 
 
@@ -342,3 +343,57 @@
 }
 
 /*ClientReview End*/
+
+
+/* Footer Component Start */
+.footerSection {
+    margin: 5rem 0rem;
+    box-shadow: 0px -3px 4px -4px #0073e6;
+}
+
+.socialLink {
+    text-decoration: none;
+    color: #0073E6;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.9;
+}
+
+.socialLink:hover {
+    text-decoration: none;
+    color: #484848;
+}
+
+.footerLink {
+    color: #484848;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+    line-height: 1.9;
+}
+
+.footerLink:hover {
+    color: #0073E6;
+    text-decoration: none;
+}
+
+.copyrightSection {
+    background-color: #0073E6;
+    padding: 20px;
+}
+
+.copyrightLink {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.copyrightLink:hover {
+    color: #000;
+}
+
+/* Footer Component End */

@@ -54,7 +54,7 @@ class ClientReview extends Component {
                     </Row>
 
 
-                    <Slider className="clientReview" {...settings}>
+                    <Slider {...settings}>
                         <div>
                             <Row className="text-center justify-content-center">
                                 <Col lg={8} md={8} sm={12}>
