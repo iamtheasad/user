@@ -16,6 +16,7 @@ class ClientReview extends Component {
             verticalSwiping: true,
             autoplay: false,
             autoplaySpeed: 3000,
+            initialSlide: 0,
             responsive: [
                 {
                     breakpoint: 1024,
@@ -64,7 +65,10 @@ class ClientReview extends Component {
                                     <h4 className="serviceName">Web Development</h4>
                                     <p className="serviceDescription">I desing modern user interface and other graphical
                                         components for your business and instiution graphical components for your
-                                        business and instiution</p>
+                                        business and instiution Lorem ipsum dolor sit amet, consectetur adipisicing
+                                        elit. Accusantium aut corporis cupiditate error, eveniet harum hic inventore
+                                        ipsum iusto, laboriosam magni necessitatibus odit pariatur quis quos recusandae
+                                        temporibus totam voluptatibus?</p>
                                 </Col>
                             </Row>
                         </div>
@@ -78,7 +82,10 @@ class ClientReview extends Component {
                                     <h4 className="serviceName">Web Development</h4>
                                     <p className="serviceDescription">I desing modern user interface and other graphical
                                         components for your business and instiution graphical components for your
-                                        business and instiution</p>
+                                        business and instiution Lorem ipsum dolor sit amet, consectetur adipisicing
+                                        elit. Accusantium aut corporis cupiditate error, eveniet harum hic inventore
+                                        ipsum iusto, laboriosam magni necessitatibus odit pariatur quis quos recusandae
+                                        temporibus totam voluptatibus?</p>
                                 </Col>
                             </Row>
                         </div>
@@ -92,7 +99,10 @@ class ClientReview extends Component {
                                     <h4 className="serviceName">Web Development</h4>
                                     <p className="serviceDescription">I desing modern user interface and other graphical
                                         components for your business and instiution graphical components for your
-                                        business and instiution</p>
+                                        business and instiution Lorem ipsum dolor sit amet, consectetur adipisicing
+                                        elit. Accusantium aut corporis cupiditate error, eveniet harum hic inventore
+                                        ipsum iusto, laboriosam magni necessitatibus odit pariatur quis quos recusandae
+                                        temporibus totam voluptatibus?</p>
                                 </Col>
                             </Row>
                         </div>
@@ -106,10 +116,15 @@ class ClientReview extends Component {
                                     <h4 className="serviceName">Web Development</h4>
                                     <p className="serviceDescription">I desing modern user interface and other graphical
                                         components for your business and instiution graphical components for your
-                                        business and instiution</p>
+                                        business and instiution Lorem ipsum dolor sit amet, consectetur adipisicing
+                                        elit. Accusantium aut corporis cupiditate error, eveniet harum hic inventore
+                                        ipsum iusto, laboriosam magni necessitatibus odit pariatur quis quos recusandae
+                                        temporibus totam voluptatibus?</p>
                                 </Col>
                             </Row>
                         </div>
+
+
                     </Slider>
                 </Container>
             </Fragment>
