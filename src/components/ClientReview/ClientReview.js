@@ -14,8 +14,9 @@ class ClientReview extends Component {
             slidesToScroll: 1,
             vertical: true,
             verticalSwiping: true,
-            autoplay: false,
+            autoplay: true,
             autoplaySpeed: 3000,
+            pauseOnHover: false,
             initialSlide: 0,
             responsive: [
                 {
