@@ -70,7 +70,7 @@ class TopNavigation extends Component {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ml-auto">
                             <Nav.Link> <NavLink exact activeStyle={{color: '#00a8ee'}} className={this.state.navBarItem}
-                                                to="/">Home</NavLink> </Nav.Link>
+                                                to={process.env.PUBLIC_URL + '/'}>Home</NavLink> </Nav.Link>
                             <Nav.Link> <NavLink exact activeStyle={{color: '#00a8ee'}} className={this.state.navBarItem}
                                                 to="/service">Services</NavLink>
                             </Nav.Link>
