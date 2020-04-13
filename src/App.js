@@ -4,7 +4,7 @@ import AppRoute from "./router/AppRoute";
 
 function App() {
     return (
-        <BrowserRouter >
+        <BrowserRouter basename={process.env.PUBLIC_URL} >
             <AppRoute/>
         </BrowserRouter>
     );
