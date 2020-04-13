@@ -13,11 +13,11 @@ class AppRoute extends Component {
             <Fragment>
                 <Switch>
                     <Route exact path={process.env.PUBLIC_URL + '/'} component={HomePage}/>
-                    <Route exact path={process.env.PUBLIC_URL + '/service'} component={ServicePage}/>
-                    <Route exact path={process.env.PUBLIC_URL + '/course'} component={CoursesPage}/>
-                    <Route exact path={process.env.PUBLIC_URL + '/portfolio'} component={PortfolioPage}/>
-                    <Route exact path={process.env.PUBLIC_URL + '/contact'} component={ContactPage}/>
-                    <Route exact path={process.env.PUBLIC_URL + '/about'} component={AboutPage}/>
+                    <Route exact path="/service" component={ServicePage}/>
+                    <Route exact path="/course" component={CoursesPage}/>
+                    <Route exact path="/portfolio" component={PortfolioPage}/>
+                    <Route exact path="/contact" component={ContactPage}/>
+                    <Route exact path="/about" component={AboutPage}/>
                 </Switch>
             </Fragment>
         );
