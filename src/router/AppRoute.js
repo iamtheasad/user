@@ -12,7 +12,7 @@ class AppRoute extends Component {
         return (
             <Fragment>
                 <Switch>
-                    <Route exact path="/" component={HomePage}/>
+                    <Route exact path="/user" component={HomePage}/>
                     <Route exact path="/service" component={ServicePage}/>
                     <Route exact path="/course" component={CoursesPage}/>
                     <Route exact path="/portfolio" component={PortfolioPage}/>
