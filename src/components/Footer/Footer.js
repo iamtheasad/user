@@ -47,9 +47,9 @@ class Footer extends Component {
                             <Link to="/refund" target="_blank"
                                className="d-block footerLink">Refund
                                 Policy</Link>
-                            <a href="https://www.linkedin.com/in/iamtheasad/" target="_blank"
+                            <Link to="/terms" target="_blank"
                                className="d-block footerLink">Terms
-                                And Condition</a>
+                                And Condition</Link>
                             <a href="https://www.linkedin.com/in/iamtheasad/" target="_blank"
                                className="d-block footerLink"> Privacy Policy</a>
                         </Col>
