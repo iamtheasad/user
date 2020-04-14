@@ -3,6 +3,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFacebook, faYoutube} from "@fortawesome/free-brands-svg-icons";
 import {faEnvelope, faPhone} from "@fortawesome/free-solid-svg-icons";
+import {Link} from "react-router-dom";
 
 class Footer extends Component {
     render() {
@@ -43,9 +44,9 @@ class Footer extends Component {
                         <Col lg={3} md={6} sm={12} className="p-5">
                             <h4 className="serviceName">Legal</h4>
 
-                            <a href="https://www.linkedin.com/in/iamtheasad/" target="_blank"
+                            <Link to="/refund" target="_blank"
                                className="d-block footerLink">Refund
-                                Policy</a>
+                                Policy</Link>
                             <a href="https://www.linkedin.com/in/iamtheasad/" target="_blank"
                                className="d-block footerLink">Terms
                                 And Condition</a>
