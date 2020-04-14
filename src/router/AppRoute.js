@@ -11,7 +11,7 @@ class AppRoute extends Component {
     render() {
         return (
             <Fragment>
-                <BrowserRouter basename={process.env.PUBLIC_URL}>
+                <BrowserRouter forceRefresh={true} basename={process.env.PUBLIC_URL}>
                     <Switch>
                         <Route exact path="/" component={HomePage}/>
                         <Route exact path="/service" component={ServicePage}/>
