@@ -60,7 +60,7 @@ class TopNavigation extends Component {
                 <Navbar className={this.state.navBarBack} fixed="top" collapseOnSelect expand="lg"
                         variant={this.state.navVariant}>
                     <Navbar.Brand>
-                        <NavLink to={process.env.PUBLIC_URL + '/'} className={this.state.navBarTitle}>
+                        <NavLink to="/" className={this.state.navBarTitle}>
                             <img src={this.state.navBarLogo} className={this.state.navBarLogoSize}/>
                             React Developer
                         </NavLink>
@@ -70,7 +70,7 @@ class TopNavigation extends Component {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ml-auto">
                             <Nav.Link> <NavLink exact activeStyle={{color: '#00a8ee'}} className={this.state.navBarItem}
-                                                to={process.env.PUBLIC_URL + '/'}>Home</NavLink> </Nav.Link>
+                                                to="/">Home</NavLink> </Nav.Link>
                             <Nav.Link> <NavLink exact activeStyle={{color: '#00a8ee'}} className={this.state.navBarItem}
                                                 to="/service">Services</NavLink>
                             </Nav.Link>
