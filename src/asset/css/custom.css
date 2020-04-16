@@ -451,3 +451,37 @@
     color: #fff;
     text-decoration: none;
 }
+
+
+/*===================================*/
+/*Course Details Component Start*/
+/*===================================*/
+.topPageContentCours {
+    margin-top: 6rem;
+}
+
+.courseFullTitle {
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+}
+
+.courseSubTitle {
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.courseDesDetails {
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+/*===================================*/
+/*Course Details Component End*/
+/*===================================*/
