@@ -3,6 +3,7 @@ import {Button, Card, Col, Container, Row} from "react-bootstrap";
 import RecentProjectImage_1 from "../../asset/image/recent-projects/latest_news_1.jpg";
 import RecentProjectImage_2 from "../../asset/image/recent-projects/latest_news_2.jpg";
 import RecentProjectImage_3 from "../../asset/image/recent-projects/latest_news_3.jpg";
+import {Link} from "react-router-dom";
 
 class AllProjects extends Component {
     render() {
@@ -19,7 +20,9 @@ class AllProjects extends Component {
                                         Some quick example text to build on the card title and make up the bulk of
                                         the card's content.
                                     </Card.Text>
-                                    <Button variant="primary">Details</Button>
+                                    <Button variant="primary">
+                                        <Link to="/projectDetails">Details</Link>
+                                    </Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -32,7 +35,9 @@ class AllProjects extends Component {
                                         Some quick example text to build on the card title and make up the bulk of
                                         the card's content.
                                     </Card.Text>
-                                    <Button variant="primary">Details</Button>
+                                    <Button variant="primary">
+                                        <Link to="/projectDetails">Details</Link>
+                                    </Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -45,7 +50,9 @@ class AllProjects extends Component {
                                         Some quick example text to build on the card title and make up the bulk of
                                         the card's content.
                                     </Card.Text>
-                                    <Button variant="primary">Details</Button>
+                                    <Button variant="primary">
+                                        <Link to="/projectDetails">Details</Link>
+                                    </Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -58,7 +65,9 @@ class AllProjects extends Component {
                                         Some quick example text to build on the card title and make up the bulk of
                                         the card's content.
                                     </Card.Text>
-                                    <Button variant="primary">Details</Button>
+                                    <Button variant="primary">
+                                        <Link to="/projectDetails">Details</Link>
+                                    </Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -71,7 +80,9 @@ class AllProjects extends Component {
                                         Some quick example text to build on the card title and make up the bulk of
                                         the card's content.
                                     </Card.Text>
-                                    <Button variant="primary">Details</Button>
+                                    <Button variant="primary">
+                                        <Link to="/projectDetails">Details</Link>
+                                    </Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -84,7 +95,9 @@ class AllProjects extends Component {
                                         Some quick example text to build on the card title and make up the bulk of
                                         the card's content.
                                     </Card.Text>
-                                    <Button variant="primary">Details</Button>
+                                    <Button variant="primary">
+                                        <Link to="/projectDetails">Details</Link>
+                                    </Button>
                                 </Card.Body>
                             </Card>
                         </Col>

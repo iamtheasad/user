@@ -3,7 +3,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFacebook, faYoutube} from "@fortawesome/free-brands-svg-icons";
 import {faEnvelope, faPhone} from "@fortawesome/free-solid-svg-icons";
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 class Footer extends Component {
     render() {
@@ -31,34 +31,22 @@ class Footer extends Component {
                         <Col lg={3} md={6} sm={12} className="p-5">
                             <h4 className="serviceName">Information</h4>
 
-                            <a href="https://www.linkedin.com/in/iamtheasad/" target="_blank"
-                               className="d-block footerLink">About
-                                Me</a>
-                            <a href="https://www.linkedin.com/in/iamtheasad/" target="_blank"
-                               className="d-block footerLink">My
-                                Resume</a>
-                            <a href="https://www.linkedin.com/in/iamtheasad/" target="_blank"
-                               className="d-block footerLink">Contact
-                                Me</a>
+                            <Link to="/about" className="d-block footerLink">About Me</Link>
+                            <Link to="/contact" className="d-block footerLink">Contact Me</Link>
                         </Col>
                         <Col lg={3} md={6} sm={12} className="p-5">
                             <h4 className="serviceName">Legal</h4>
 
-                            <Link to="/refund" target="_blank"
-                               className="d-block footerLink">Refund
-                                Policy</Link>
-                            <Link to="/terms" target="_blank"
-                               className="d-block footerLink">Terms
-                                And Condition</Link>
-                            <a href="https://www.linkedin.com/in/iamtheasad/" target="_blank"
-                               className="d-block footerLink"> Privacy Policy</a>
+                            <Link to="/refund" className="d-block footerLink">Refund Policy</Link>
+                            <Link to="/terms" className="d-block footerLink">Terms And Condition</Link>
+                            <NavLink to="/privacy" className="d-block footerLink"> Privacy Policy</NavLink>
                         </Col>
                     </Row>
                 </Container>
 
                 <Container fluid={true} className="text-center copyrightSection">
                     <Row>
-                        <Col lg={12} >
+                        <Col lg={12}>
                             <a href="https://www.linkedin.com/in/iamtheasad/" target="_blank"
                                className=" copyrightLink">asaduzzamanrana.com &copy; 2020 </a>
                         </Col>
