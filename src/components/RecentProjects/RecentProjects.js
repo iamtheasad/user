@@ -26,7 +26,7 @@ class RecentProjects extends Component {
                                         the card's content.
                                     </Card.Text>
                                     <Button variant="primary">
-                                        <Link to="/projectDetails">Details</Link>
+                                        <Link  className="lind-style" to="/projectDetails">Details</Link>
                                     </Button>
                                 </Card.Body>
                             </Card>
@@ -41,7 +41,7 @@ class RecentProjects extends Component {
                                         the card's content.
                                     </Card.Text>
                                     <Button variant="primary">
-                                        <Link to="/projectDetails">Details</Link>
+                                        <Link className="lind-style" to="/projectDetails">Details</Link>
                                     </Button>
                                 </Card.Body>
                             </Card>
@@ -56,7 +56,7 @@ class RecentProjects extends Component {
                                         the card's content.
                                     </Card.Text>
                                     <Button variant="primary">
-                                        <Link to="/projectDetails">Details</Link>
+                                        <Link className="lind-style" to="/projectDetails">Details</Link>
                                     </Button>
                                 </Card.Body>
                             </Card>
