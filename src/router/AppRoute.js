@@ -17,17 +17,17 @@ class AppRoute extends Component {
         return (
             <Fragment>
                 <Switch>
-                    <Route exact path="/" component={HomePage}/>
-                    <Route exact path="/service" component={ServicePage}/>
-                    <Route exact path="/course" component={CoursesPage}/>
-                    <Route exact path="/portfolio" component={PortfolioPage}/>
-                    <Route exact path="/contact" component={ContactPage}/>
-                    <Route exact path="/about" component={AboutPage}/>
-                    <Route exact path="/refund" component={RefundPage}/>
-                    <Route exact path="/terms" component={TermsPage}/>
-                    <Route exact path="/privacy" component={PrivacyPage}/>
-                    <Route exact path="/projectDetails" component={ProjectDetailsPage}/>
-                    <Route exact path="/courseDetails" component={CourseDetailsPage}/>
+                    <Route exact  path={process.env.PUBLIC_URL + '/'} component={HomePage}/>
+                    <Route path="/service" component={ServicePage}/>
+                    <Route path="/course" component={CoursesPage}/>
+                    <Route path="/portfolio" component={PortfolioPage}/>
+                    <Route path="/contact" component={ContactPage}/>
+                    <Route path="/about" component={AboutPage}/>
+                    <Route path="/refund" component={RefundPage}/>
+                    <Route path="/terms" component={TermsPage}/>
+                    <Route path="/privacy" component={PrivacyPage}/>
+                    <Route path="/projectDetails" component={ProjectDetailsPage}/>
+                    <Route path="/courseDetails" component={CourseDetailsPage}/>
                 </Switch>
             </Fragment>
         );
