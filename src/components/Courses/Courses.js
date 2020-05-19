@@ -41,7 +41,7 @@ class Courses extends Component {
                             <Link to="/courseDetails" className="courseDetails">Details</Link>
                         </Col>
                         <Col  className="mb-4" lg={3} md={6} sm={12}>
-                            <img src="https://cdn.pixabay.com/photo/2020/03/24/08/18/sitting-4963159_960_720.jpg" className="w-100" alt="Course Image"/>
+                            <img src="https://cdn.pixabay.com/photo/2020/03/12/19/55/northern-gannet-4926108_960_720.jpg" className="w-100" alt="Course Image"/>
                         </Col>
                         <Col  className="mb-4" lg={3} md={6} sm={12}>
                             <h2 className="courseTitle">Web Development</h2>
