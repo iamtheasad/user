@@ -24,9 +24,9 @@ class Footer extends Component {
                             <p className="serviceDescription">#79/6 Padma Residential Aria, 3rd Floor Front Side,
                                 Rajshahi</p>
                             <p className="serviceDescription"><span className="mr-1"><FontAwesomeIcon
-                                icon={faEnvelope}/></span> Engr.Rabbil@yahoo.com</p>
+                                icon={faEnvelope}/></span> iamtheasad@gmail.com</p>
                             <p className="serviceDescription"><span className="mr-1"><FontAwesomeIcon
-                                icon={faPhone}/></span> +8801701063280</p>
+                                icon={faPhone}/></span> +8801673776228</p>
                         </Col>
                         <Col lg={3} md={6} sm={12} className="p-5">
                             <h4 className="serviceName">Information</h4>

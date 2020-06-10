@@ -3,27 +3,49 @@ import {Button, Col, Container, Row} from "react-bootstrap";
 import AppUrl from "../../RestAPI/AppUrl";
 import RestClient from "../../RestAPI/RestClient";
 
-
 class TopBanner extends Component {
 
-    constructor() {
+    constructor(){
         super();
 
-        this.state = {
+        this.state={
             title: '',
             subtitle: ''
         }
     }
 
     componentDidMount() {
-        RestClient.GetRequest(AppUrl.HomeTopTitle).then(result => {
-
-            this.setState({
-                title: result[0]['home_title'],
-                subtitle: result[0]['home_subtitle']
-            })
-        });
+        RestClient.GetRequest(AppUrl.HomeTopTitle).then(result=>{
+            this.setState({title:result[0]['home_title'], subtitle: result[0]['home_subtitle']})
+        }).catch(error=>{
+            this.setState({title:"Error!", subtitle: "Error!"})
+        })
     }
+
+    // constructor() {
+    //     super();
+    //
+    //     this.state = {
+    //         title: 'Title',
+    //         subtitle: 'Subtitle'
+    //     }
+    // }
+    //
+    // componentDidMount() {
+    //     RestClient.GetRequest(AppUrl.HomeTopTitle).then(result => {
+    //         this.setState({
+    //             title: result[0]['home_title'],
+    //             subtitle: result[0]['home_subtitle']
+    //         }).catch(error=>{
+    //             this.setState({
+    //                 title: "???",
+    //                 subtitle: "???"
+    //             });
+    //         });
+    //     });
+    // }
+
+
 
     render() {
         return (
