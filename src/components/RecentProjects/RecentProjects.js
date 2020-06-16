@@ -4,63 +4,57 @@ import RecentProjectImage_1 from '../../asset/image/recent-projects/latest_news_
 import RecentProjectImage_2 from '../../asset/image/recent-projects/latest_news_2.jpg'
 import RecentProjectImage_3 from '../../asset/image/recent-projects/latest_news_3.jpg'
 import {Link} from "react-router-dom";
+import RestClient from '../../RestAPI/RestClient';
+import AppUrl from '../../RestAPI/AppUrl';
 
 class RecentProjects extends Component {
+
+    constructor() {
+        super();
+
+        this.state = {
+            myData: []
+        }
+    }
+
+    componentDidMount() {
+        RestClient.GetRequest(AppUrl.Project3)
+            .then(result => {
+                this.setState({myData: result});
+            })
+    }
+
     render() {
+
+        const myList = this.state.myData;
+        const myView = myList.map(myList => {
+
+            return (
+                <Col sm={12} md={6} lg={4}>
+                    <Card className="projectCard">
+                        <Card.Img variant="top" src={myList.img_one}/>
+                        <Card.Body>
+                            <Card.Title className="projectCardTitle">{myList.project_name}</Card.Title>
+                            <Card.Text className="projectCardDes">{myList.short_description}</Card.Text>
+                            <Button variant="primary">
+                                <Link className="lind-style" to="/projectDetails">Details</Link>
+                            </Button>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            )
+        });
+
         return (
             <Fragment>
                 <Container className="text-center">
                     <Row>
-                        <Col lg={12} >
+                        <Col lg={12}>
                             <h2 className="serviceMainTitle">RECENT PROJECTS</h2>
                         </Col>
                     </Row>
                     <Row>
-                        <Col sm={12} md={6} lg={4}>
-                            <Card className="projectCard">
-                                <Card.Img variant="top" src={RecentProjectImage_1} />
-                                <Card.Body>
-                                    <Card.Title className="projectCardTitle">Card Title</Card.Title>
-                                    <Card.Text className="projectCardDes">
-                                        Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.
-                                    </Card.Text>
-                                    <Button variant="primary">
-                                        <Link  className="lind-style" to="/projectDetails">Details</Link>
-                                    </Button>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col sm={12} md={6} lg={4}>
-                            <Card className="projectCard">
-                                <Card.Img variant="top" src={RecentProjectImage_2}/>
-                                <Card.Body>
-                                    <Card.Title className="projectCardTitle">Card Title</Card.Title>
-                                    <Card.Text className="projectCardDes">
-                                        Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.
-                                    </Card.Text>
-                                    <Button variant="primary">
-                                        <Link className="lind-style" to="/projectDetails">Details</Link>
-                                    </Button>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col sm={12} md={6} lg={4}>
-                            <Card className="projectCard">
-                                <Card.Img variant="top" src={RecentProjectImage_3}/>
-                                <Card.Body>
-                                    <Card.Title className="projectCardTitle">Card Title</Card.Title>
-                                    <Card.Text className="projectCardDes">
-                                        Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.
-                                    </Card.Text>
-                                    <Button variant="primary">
-                                        <Link className="lind-style" to="/projectDetails">Details</Link>
-                                    </Button>
-                                </Card.Body>
-                            </Card>
-                        </Col>
+                        {myView}
                     </Row>
                 </Container>
             </Fragment>
