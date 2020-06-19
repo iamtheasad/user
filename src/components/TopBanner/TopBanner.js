@@ -1,52 +1,8 @@
 import React, {Component, Fragment} from 'react';
 import {Button, Col, Container, Row} from "react-bootstrap";
-import AppUrl from "../../RestAPI/AppUrl";
-import RestClient from "../../RestAPI/RestClient";
+
 
 class TopBanner extends Component {
-
-    constructor(){
-        super();
-
-        this.state={
-            title: '',
-            subtitle: ''
-        }
-    }
-
-    componentDidMount() {
-        RestClient.GetRequest(AppUrl.HomeTopTitle).then(result=>{
-            this.setState({title:result[0]['home_title'], subtitle: result[0]['home_subtitle']})
-        }).catch(error=>{
-            this.setState({title:"Error!", subtitle: "Error!"})
-        })
-    }
-
-    // constructor() {
-    //     super();
-    //
-    //     this.state = {
-    //         title: 'Title',
-    //         subtitle: 'Subtitle'
-    //     }
-    // }
-    //
-    // componentDidMount() {
-    //     RestClient.GetRequest(AppUrl.HomeTopTitle).then(result => {
-    //         this.setState({
-    //             title: result[0]['home_title'],
-    //             subtitle: result[0]['home_subtitle']
-    //         }).catch(error=>{
-    //             this.setState({
-    //                 title: "???",
-    //                 subtitle: "???"
-    //             });
-    //         });
-    //     });
-    // }
-
-
-
     render() {
         return (
             <Fragment>
@@ -55,8 +11,8 @@ class TopBanner extends Component {
                         <div className="topContent">
                             <Row>
                                 <Col className="text-center">
-                                    <h1 className="topTitle">{this.state.title}</h1>
-                                    <h4 className="topSubTitle">{this.state.subtitle}</h4>
+                                    <h1 className="topTitle">SOFTWARE ENGINEER</h1>
+                                    <h4 className="topSubTitle">Mobile & Web Application</h4>
                                     <Button variant="primary">More Info</Button>
                                 </Col>
                             </Row>

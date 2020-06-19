@@ -61,7 +61,7 @@ class ClientReview extends Component {
                             <Row className="text-center justify-content-center">
                                 <Col lg={8} md={8} sm={12}>
                                     <img
-                                        src="https://media-exp1.licdn.com/dms/image/C5103AQFCoBxyKW4Sjw/profile-displayphoto-shrink_200_200/0?e=1591833600&v=beta&t=uaf8gaxNXclr1zWhwLbDOKGX2-fSbyono0Ex9n7tRiE"
+                                        src="https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358_960_720.jpg"
                                         alt="Client Image" className="circlaImg"/>
                                     <h4 className="serviceName">Web Development</h4>
                                     <p className="serviceDescription">I desing modern user interface and other graphical
@@ -78,7 +78,7 @@ class ClientReview extends Component {
                             <Row className="text-center justify-content-center">
                                 <Col lg={8} md={8} sm={12}>
                                     <img
-                                        src="https://media-exp1.licdn.com/dms/image/C5103AQFCoBxyKW4Sjw/profile-displayphoto-shrink_200_200/0?e=1591833600&v=beta&t=uaf8gaxNXclr1zWhwLbDOKGX2-fSbyono0Ex9n7tRiE"
+                                        src="https://cdn.pixabay.com/photo/2015/01/08/18/30/entrepreneur-593371_960_720.jpg"
                                         alt="Client Image" className="circlaImg"/>
                                     <h4 className="serviceName">Web Development</h4>
                                     <p className="serviceDescription">I desing modern user interface and other graphical
@@ -95,7 +95,7 @@ class ClientReview extends Component {
                             <Row className="text-center justify-content-center">
                                 <Col lg={8} md={8} sm={12}>
                                     <img
-                                        src="https://media-exp1.licdn.com/dms/image/C5103AQFCoBxyKW4Sjw/profile-displayphoto-shrink_200_200/0?e=1591833600&v=beta&t=uaf8gaxNXclr1zWhwLbDOKGX2-fSbyono0Ex9n7tRiE"
+                                        src="https://cdn.pixabay.com/photo/2016/03/09/10/23/model-1246028_960_720.jpg"
                                         alt="Client Image" className="circlaImg"/>
                                     <h4 className="serviceName">Web Development</h4>
                                     <p className="serviceDescription">I desing modern user interface and other graphical
@@ -112,7 +112,7 @@ class ClientReview extends Component {
                             <Row className="text-center justify-content-center">
                                 <Col lg={8} md={8} sm={12}>
                                     <img
-                                        src="https://media-exp1.licdn.com/dms/image/C5103AQFCoBxyKW4Sjw/profile-displayphoto-shrink_200_200/0?e=1591833600&v=beta&t=uaf8gaxNXclr1zWhwLbDOKGX2-fSbyono0Ex9n7tRiE"
+                                        src="https://cdn.pixabay.com/photo/2015/01/08/18/30/entrepreneur-593372_960_720.jpg"
                                         alt="Client Image" className="circlaImg"/>
                                     <h4 className="serviceName">Web Development</h4>
                                     <p className="serviceDescription">I desing modern user interface and other graphical
