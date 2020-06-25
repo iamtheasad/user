@@ -1,8 +1,5 @@
 import React, {Component, Fragment} from 'react';
 import {Col, Container, Row} from "react-bootstrap";
-import webLogo from '../../asset/image/web.svg';
-import mobileLogo from '../../asset/image/mobile.svg';
-import graphicsLogo from '../../asset/image/graphics.svg';
 import RestClient from "../../RestAPI/RestClient";
 import AppUrl from "../../RestAPI/AppUrl";
 
