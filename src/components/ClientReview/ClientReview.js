@@ -3,8 +3,26 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import {Col, Container, Row} from "react-bootstrap";
+import RestClient from "../../RestAPI/RestClient";
+import AppUrl from "../../RestAPI/AppUrl";
 
 class ClientReview extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            myData: []
+        }
+    }
+
+    componentDidMount() {
+        RestClient.GetRequest(AppUrl.ClientReview).then(result => {
+            this.setState({
+                myData: result
+            })
+        })
+    }
+
     render() {
         var settings = {
             dots: true,
@@ -46,6 +64,25 @@ class ClientReview extends Component {
             ]
         };
 
+
+        const myList = this.state.myData;
+
+        const myView = myList.map(myList => {
+            return (
+                <Fragment>
+                    <Row className="text-center justify-content-center">
+                        <Col lg={8} md={8} sm={12}>
+                            <img
+                                src={myList.client_img}
+                                alt="Client Image" className="circlaImg"/>
+                            <h4 className="serviceName">{myList.client_title}</h4>
+                            <p className="serviceDescription">{myList.client_description}</p>
+                        </Col>
+                    </Row>
+                </Fragment>
+            );
+        })
+
         return (
             <Fragment>
                 <Container>
@@ -57,75 +94,7 @@ class ClientReview extends Component {
 
 
                     <Slider {...settings}>
-                        <div>
-                            <Row className="text-center justify-content-center">
-                                <Col lg={8} md={8} sm={12}>
-                                    <img
-                                        src="https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358_960_720.jpg"
-                                        alt="Client Image" className="circlaImg"/>
-                                    <h4 className="serviceName">Web Development</h4>
-                                    <p className="serviceDescription">I desing modern user interface and other graphical
-                                        components for your business and instiution graphical components for your
-                                        business and instiution Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit. Accusantium aut corporis cupiditate error, eveniet harum hic inventore
-                                        ipsum iusto, laboriosam magni necessitatibus odit pariatur quis quos recusandae
-                                        temporibus totam voluptatibus?</p>
-                                </Col>
-                            </Row>
-                        </div>
-
-                        <div>
-                            <Row className="text-center justify-content-center">
-                                <Col lg={8} md={8} sm={12}>
-                                    <img
-                                        src="https://cdn.pixabay.com/photo/2015/01/08/18/30/entrepreneur-593371_960_720.jpg"
-                                        alt="Client Image" className="circlaImg"/>
-                                    <h4 className="serviceName">Web Development</h4>
-                                    <p className="serviceDescription">I desing modern user interface and other graphical
-                                        components for your business and instiution graphical components for your
-                                        business and instiution Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit. Accusantium aut corporis cupiditate error, eveniet harum hic inventore
-                                        ipsum iusto, laboriosam magni necessitatibus odit pariatur quis quos recusandae
-                                        temporibus totam voluptatibus?</p>
-                                </Col>
-                            </Row>
-                        </div>
-
-                        <div>
-                            <Row className="text-center justify-content-center">
-                                <Col lg={8} md={8} sm={12}>
-                                    <img
-                                        src="https://cdn.pixabay.com/photo/2016/03/09/10/23/model-1246028_960_720.jpg"
-                                        alt="Client Image" className="circlaImg"/>
-                                    <h4 className="serviceName">Web Development</h4>
-                                    <p className="serviceDescription">I desing modern user interface and other graphical
-                                        components for your business and instiution graphical components for your
-                                        business and instiution Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit. Accusantium aut corporis cupiditate error, eveniet harum hic inventore
-                                        ipsum iusto, laboriosam magni necessitatibus odit pariatur quis quos recusandae
-                                        temporibus totam voluptatibus?</p>
-                                </Col>
-                            </Row>
-                        </div>
-
-                        <div>
-                            <Row className="text-center justify-content-center">
-                                <Col lg={8} md={8} sm={12}>
-                                    <img
-                                        src="https://cdn.pixabay.com/photo/2015/01/08/18/30/entrepreneur-593372_960_720.jpg"
-                                        alt="Client Image" className="circlaImg"/>
-                                    <h4 className="serviceName">Web Development</h4>
-                                    <p className="serviceDescription">I desing modern user interface and other graphical
-                                        components for your business and instiution graphical components for your
-                                        business and instiution Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit. Accusantium aut corporis cupiditate error, eveniet harum hic inventore
-                                        ipsum iusto, laboriosam magni necessitatibus odit pariatur quis quos recusandae
-                                        temporibus totam voluptatibus?</p>
-                                </Col>
-                            </Row>
-                        </div>
-
-
+                        {myView}
                     </Slider>
                 </Container>
             </Fragment>
