@@ -26,13 +26,11 @@ class Courses extends Component {
 
         const myList = this.state.myData;
 
-        const myView = myList.map(myList=>{
+        const myView = myList.map(myList => {
             return (
                 <Fragment>
                     <Col className="mb-4" lg={3} md={6} sm={12}>
-                        <img
-                            src={myList.small_img}
-                            className="w-100" alt="Course Image"/>
+                        <img src={myList.small_img} className="w-100" alt="Course Image"/>
                     </Col>
                     <Col className="mb-4" lg={3} md={6} sm={12}>
                         <h2 className="courseTitle">{myList.short_title}</h2>
