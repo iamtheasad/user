@@ -1,6 +1,8 @@
 import React, {Component, Fragment} from 'react';
 import {Col, Container, Row} from "react-bootstrap";
 import {Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
+import RestClient from "../../RestAPI/RestClient";
+import AppUrl from "../../RestAPI/AppUrl";
 
 
 class Analysis extends Component {
@@ -8,46 +10,16 @@ class Analysis extends Component {
     constructor() {
         super();
         this.state = {
-
-            data: [
-                {
-                    Technology: "Java",
-                    Projects: 100,
-                },
-                {
-                    Technology: "Kotlin",
-                    Projects: 65,
-                },
-                {
-                    Technology: "Sql",
-                    Projects: 55,
-                },
-                {
-                    Technology: "Bootstrap",
-                    Projects: 95,
-                },
-                {
-                    Technology: "Jquery",
-                    Projects: 100,
-                },
-                {
-                    Technology: "Java",
-                    Projects: 95,
-                },
-                {
-                    Technology: "PHP",
-                    Projects: 30,
-                },
-                {
-                    Technology: "React",
-                    Projects: 100,
-                },
-                {
-                    Technology: "Angular",
-                    Projects: 40,
-                }
-            ]
+            data: []
         }
+    }
+
+    componentDidMount() {
+        RestClient.GetRequest(AppUrl.ChartData).then(result => {
+            this.setState({
+                data: result
+            })
+        })
     }
 
     render() {
@@ -67,10 +39,10 @@ class Analysis extends Component {
                         <Col style={{width: '100%', height: '420px'}} lg={6} md={12} sm={12}>
                             <ResponsiveContainer>
                                 <BarChart width={100} height={420} data={this.state.data}>
-                                    <XAxis dataKey="Technology" />
+                                    <XAxis dataKey="technology"/>
                                     <YAxis/>
-                                    <Tooltip />
-                                    <Bar dataKey="Projects" fill={blue}></Bar>
+                                    <Tooltip/>
+                                    <Bar dataKey="projects" fill={blue}></Bar>
                                 </BarChart>
                             </ResponsiveContainer>
                         </Col>

@@ -1,6 +1,6 @@
 class AppUrl {
 
-    static BaseUrl='https://portfolio-laravel-rest-api.herokuapp.com/';
+    static BaseUrl='http://127.0.0.1:8000/';
     static HomeTopTitle=this.BaseUrl+'/HomeTopTitle';
     static TechDesc=this.BaseUrl+'/TechDesc';
     static TotalProjectClient=this.BaseUrl+'/TotalProjectClient';
