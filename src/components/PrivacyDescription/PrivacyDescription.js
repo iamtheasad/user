@@ -1,8 +1,29 @@
 import React, {Component, Fragment} from 'react';
 import {Container, Row} from "react-bootstrap";
 import Col from "react-bootstrap/Col";
+import RestClient from "../../RestAPI/RestClient";
+import AppUrl from "../../RestAPI/AppUrl";
+import ReactHtmlParser from 'react-html-parser';
+
 
 class PrivacyDescription extends Component {
+
+    constructor() {
+        super();
+
+        this.state = {
+            desc: '...'
+        }
+    }
+
+    componentDidMount() {
+        RestClient.GetRequest(AppUrl.Information).then(result => {
+            this.setState({
+                desc: result[0]['privacy']
+            })
+        })
+    }
+
     render() {
         return (
             <Fragment>
@@ -11,12 +32,7 @@ class PrivacyDescription extends Component {
                         <Col>
                             <ul>
                                 <li>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium doloribus
-                                    expedita, fuga quasi reiciendis repellendus! Architecto culpa eius exercitationem
-                                    nesciunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
-                                    accusantium ad assumenda consequatur deserunt dignissimos doloremque ex ipsa laborum
-                                    magnam, minima, molestiae nihil nisi odit pariatur quam quibusdam velit
-                                    voluptatibus.
+                                    {ReactHtmlParser(this.state.desc)}
                                 </li>
                             </ul>
                         </Col>
