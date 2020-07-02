@@ -2,8 +2,31 @@ import React, {Component, Fragment} from 'react';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEnvelope, faPhone} from "@fortawesome/free-solid-svg-icons";
+import RestClient from '../../RestAPI/RestClient';
+import AppUrl from '../../RestAPI/AppUrl';
 
 class ContactSection extends Component {
+
+    constructor(){
+        super();
+
+        this.state = {
+            address: '...',
+            email: '...',
+            phone: '...',
+        }
+    }
+
+    componentDidMount() {
+        RestClient.GetRequest(AppUrl.Footer).then(result => {
+            this.setState({
+                address:result[0]['address'],
+                email:result[0]['email'],
+                phone:result[0]['phone']
+            })
+        })
+    }
+
     render() {
         return (
             <Fragment>
@@ -33,12 +56,11 @@ class ContactSection extends Component {
                         </Col>
                         <Col lg={6} md={6} sm={12}>
                             <h1 className="serviceName">Discuss Now</h1>
-                            <p className="serviceDescription">#79/6 Padma Residential Aria, 3rd Floor Front Side,
-                                Rajshahi</p>
+                            <p className="serviceDescription">{this.state.address}</p>
                             <p className="serviceDescription"><span className="mr-1"><FontAwesomeIcon
-                                icon={faEnvelope}/></span> Engr.Rabbil@yahoo.com</p>
+                                icon={faEnvelope}/></span> {this.state.email}</p>
                             <p className="serviceDescription"><span className="mr-1"><FontAwesomeIcon
-                                icon={faPhone}/></span> +8801701063280</p>
+                                icon={faPhone}/></span> {this.state.phone}</p>
                         </Col>
                     </Row>
                 </Container>
