@@ -10,6 +10,17 @@ class RestClient {
         });
     }
 
+    static PostRequest = (postUrl, postJson) => {
+        return axios.post(postUrl, postJson)
+            .then(response => {
+                return response.data;
+            })
+            .catch(error => {
+                return error;
+            });
+    }
+
+
 }
 
 export default RestClient;
