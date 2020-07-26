@@ -27,6 +27,16 @@ class ContactSection extends Component {
         })
     }
 
+
+    sendContact(){
+       let name = document.getElementById('name').value;
+       let email = document.getElementById('email').value;
+       let msg = document.getElementById('msg').value;
+
+       alert(name+email+msg);
+    }
+
+
     render() {
         return (
             <Fragment>
@@ -38,18 +48,18 @@ class ContactSection extends Component {
                             <Form>
                                 <Form.Group>
                                     <Form.Label className="serviceDescription">Name</Form.Label>
-                                    <Form.Control type="text" />
+                                    <Form.Control id="name" type="text" />
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label className="serviceDescription">Email address</Form.Label>
-                                    <Form.Control type="email" />
+                                    <Form.Control id="email" type="email" />
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label className="serviceDescription">Message</Form.Label>
-                                    <Form.Control as="textarea" rows="5" />
+                                    <Form.Control id="msg" as="textarea" rows="5" />
                                 </Form.Group>
 
-                                <Button variant="primary" type="submit">
+                                <Button onClick={this.sendContact} variant="primary">
                                     Submit
                                 </Button>
                             </Form>
