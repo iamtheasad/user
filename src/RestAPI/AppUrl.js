@@ -5,7 +5,7 @@ class AppUrl {
     static TechDesc=this.BaseUrl+'/TechDesc';
     static TotalProjectClient=this.BaseUrl+'/TotalProjectClient';
     static VideoHome=this.BaseUrl+'/VideoHome';
-    static ProjectDetails=this.BaseUrl+'/ProjectDetails';
+    static ProjectDetails=this.BaseUrl+'/ProjectDetails/';
     static ProjectAll=this.BaseUrl+'/ProjectAll';
     static Project3=this.BaseUrl+'/Project3';
     static Services=this.BaseUrl+'/Services';

@@ -36,7 +36,7 @@ class AllProjects extends Component {
                                 {myList.short_description}
                             </Card.Text>
                             <Button variant="primary">
-                                <Link className="lind-style" to="/projectDetails">Details</Link>
+                                <Link className="lind-style" to={"/projectDetails/"+myList.id+"/"+myList.project_name}>Details</Link>
                             </Button>
                         </Card.Body>
                     </Card>

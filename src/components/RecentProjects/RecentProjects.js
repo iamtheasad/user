@@ -1,8 +1,5 @@
 import React, {Component, Fragment} from 'react';
 import {Col, Container, Row, Card, Button} from "react-bootstrap";
-import RecentProjectImage_1 from '../../asset/image/recent-projects/latest_news_1.jpg'
-import RecentProjectImage_2 from '../../asset/image/recent-projects/latest_news_2.jpg'
-import RecentProjectImage_3 from '../../asset/image/recent-projects/latest_news_3.jpg'
 import {Link} from "react-router-dom";
 import RestClient from "../../RestAPI/RestClient";
 import AppUrl from "../../RestAPI/AppUrl";
@@ -40,7 +37,7 @@ class RecentProjects extends Component {
                                 {myList.short_description}
                             </Card.Text>
                             <Button variant="primary">
-                                <Link className="lind-style" to="/projectDetails">Details</Link>
+                                <Link className="lind-style" to={"/projectDetails/"+myList.id+"/"+myList.project_name}>Details</Link>
                             </Button>
                         </Card.Body>
                     </Card>
