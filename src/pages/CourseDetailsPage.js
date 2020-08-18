@@ -5,11 +5,11 @@ import CourseDetails from "../components/CourseDetails/CourseDetails";
 
 class CourseDetailsPage extends Component {
 
-    constructor({match}) {
+    constructor({match}){
         super();
 
         this.state = {
-            MyCourseID: match.params.CourseID
+            MyCourseId: match.params.CourseID
         }
     }
 
@@ -21,7 +21,7 @@ class CourseDetailsPage extends Component {
         return (
             <Fragment>
                 <TopNavigation title="Course Details"/>
-                <CourseDetails id={this.state.MyCourseID}/>
+                <CourseDetails id={this.state.MyCourseId}/>
                 <Footer/>
             </Fragment>
         );

@@ -46,7 +46,7 @@ class ProjectDetails extends Component {
                             <h2 className="serviceName">{this.state.project_name}</h2>
                             <p className="serviceDescription">{this.state.short_description}</p>
                             { ReactHtmlParser(this.state.project_features) }
-                            <Button variant="primary">More Info</Button>
+                            <Button variant="primary" href={"//"+this.state.live_preview} target="_blank">More Info</Button>
                         </Col>
                     </Row>
                 </Container>

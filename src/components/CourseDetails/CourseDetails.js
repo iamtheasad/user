@@ -12,13 +12,15 @@ class CourseDetails extends Component {
 
         this.state = {
             MyCourseID: props.id,
-            Longtitle: " ",
+            LongTitle: " ",
             TotalLecture: " ",
             TotalStudent: " ",
-            LongDesc: " ",
+            ShortDes: " ",
+            LongDes: " ",
+            VideoUrl: " ",
+            MoreInforUrl: " ",
             SkillAll: " ",
-            VideoURL: " ",
-            MoreInfoURL: " "
+
         }
     }
 
@@ -26,19 +28,20 @@ class CourseDetails extends Component {
         RestClient.GetRequest(AppUrl.CourseDetails + this.state.MyCourseID)
             .then(result => {
                 this.setState({
-                    Longtitle:result[0]['long_title'],
-                    TotalLecture:result[0]['total_lecture'],
-                    TotalStudent:result[0]['total_student'],
-                    LongDesc:result[0]['long_des'],
-                    SkillAll:result[0]['skill_all'],
-                    VideoURL:result[0]['video_url'],
-                    MoreInfoURL:result[0]['courses_link'],
-                })
+                        LongTitle: result[0]['long_title'],
+                        TotalLecture: result[0]['total_lecture'],
+                        TotalStudent: result[0]['total_student'],
+                        ShortDes: result[0]['short_des'],
+                        LongDes: result[0]['long_des'],
+                        VideoUrl: result[0]['video_url'],
+                        MoreInforUrl: result[0]['courses_link'],
+                        SkillAll: result[0]['skill_all']
+                    }
+                )
             }).catch(error => {
-                return null;
+
         });
     }
-
 
     render() {
         return (
@@ -48,12 +51,12 @@ class CourseDetails extends Component {
                         <Container className="topPageContentCours">
                             <Row>
                                 <Col sm={12} md={6} lg={6}>
-                                    <h3 className="courseFullTitle">{this.state.Longtitle}</h3>
+                                    <h3 className="courseFullTitle">{this.state.LongTitle}</h3>
                                     <h5 className="courseSubTitle">Total Lecture={this.state.TotalLecture}</h5>
                                     <h5 className="courseSubTitle">Total Student={this.state.TotalStudent}</h5>
                                 </Col>
                                 <Col sm={12} md={6} lg={6}>
-                                    <p className="courseDesDetails">{this.state.LongDesc}</p>
+                                    <p className="courseDesDetails">{this.state.LongDes}</p>
                                 </Col>
                             </Row>
                         </Container>
@@ -65,11 +68,11 @@ class CourseDetails extends Component {
                         <Col sm={12} md={6} lg={6}>
                             <h1 className="serviceName">Skill You Get</h1>
                             {ReactHtmlParser(this.state.SkillAll)}
-                            <Button variant="primary">More Info</Button>
+                            <Button href={"//"+this.state.MoreInforUrl} target="_blank" variant="primary">More Info</Button>
                         </Col>
                         <Col sm={12} md={6} lg={6}>
                             <Player>
-                                <source src={this.state.VideoURL}/>
+                                <source src={this.state.VideoUrl}/>
                                 <BigPlayButton position="center"/>
                             </Player>
                         </Col>
