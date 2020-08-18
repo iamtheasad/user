@@ -5,15 +5,23 @@ import CourseDetails from "../components/CourseDetails/CourseDetails";
 
 class CourseDetailsPage extends Component {
 
+    constructor({match}) {
+        super();
+
+        this.state = {
+            MyCourseID: match.params.CourseID
+        }
+    }
+
     componentDidMount() {
-        window.scroll(0,0);
+        window.scroll(0, 0);
     }
 
     render() {
         return (
             <Fragment>
                 <TopNavigation title="Course Details"/>
-                <CourseDetails/>
+                <CourseDetails id={this.state.MyCourseID}/>
                 <Footer/>
             </Fragment>
         );

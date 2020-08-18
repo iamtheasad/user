@@ -11,7 +11,7 @@ class AppUrl {
     static Services=this.BaseUrl+'/Services';
     static Information=this.BaseUrl+'/Information';
     static Footer=this.BaseUrl+'/Footer';
-    static CourseDetails=this.BaseUrl+'/CourseDetails';
+    static CourseDetails=this.BaseUrl+'/CourseDetails/';
     static CourseAll=this.BaseUrl+'/CourseAll';
     static CourseHome=this.BaseUrl+'/CourseHome';
     static ContactSend=this.BaseUrl+'/ContactSend';

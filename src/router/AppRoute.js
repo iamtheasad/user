@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {Switch, Route, BrowserRouter} from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import ServicePage from "../pages/ServicePage";
 import CoursesPage from "../pages/CoursesPage";
@@ -27,7 +27,7 @@ class AppRoute extends Component {
                     <Route path="/terms" component={TermsPage}/>
                     <Route path="/privacy" component={PrivacyPage}/>
                     <Route path="/projectDetails/:projectID/:projectName" component={ProjectDetailsPage}/>
-                    <Route path="/courseDetails" component={CourseDetailsPage}/>
+                    <Route path="/courseDetails/:CourseID" component={CourseDetailsPage}/>
                 </Switch>
             </Fragment>
         );

@@ -36,7 +36,7 @@ class AllCourses extends Component {
                         <h2 className="courseTitle">{myList.short_title}</h2>
                         <p className="courseDes text-justify">{myList.short_des}</p>
 
-                        <Link to="/courseDetails" className="courseDetails">Details</Link>
+                        <Link to={"/courseDetails/"+myList.id} className="courseDetails">Details</Link>
                     </Col>
                 </Fragment>
             )
