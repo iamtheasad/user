@@ -1,3 +1,8 @@
+.LoaderAnimation {
+    width: 180px;
+    height: 180px;
+}
+
 .topFixedBanner {
     background-image: url("../image/banner.jpg");
     min-height: 500px;
