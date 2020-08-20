@@ -5,20 +5,23 @@ import Slider from "react-slick";
 import {Col, Container, Row} from "react-bootstrap";
 import RestClient from "../../RestAPI/RestClient";
 import AppUrl from "../../RestAPI/AppUrl";
+import Loader from "../Loader/Loader";
 
 class ClientReview extends Component {
 
     constructor() {
         super();
         this.state = {
-            myData: []
+            myData: [],
+            loading: true
         }
     }
 
     componentDidMount() {
         RestClient.GetRequest(AppUrl.ClientReview).then(result => {
             this.setState({
-                myData: result
+                myData: result,
+                loading: false
             })
         })
     }
@@ -64,41 +67,44 @@ class ClientReview extends Component {
             ]
         };
 
+        if (this.state.loading == true) {
+            return <Loader/>
+        } else {
+            const myList = this.state.myData;
 
-        const myList = this.state.myData;
+            const myView = myList.map(myList => {
+                return (
+                    <Fragment>
+                        <Row className="text-center justify-content-center">
+                            <Col lg={8} md={8} sm={12}>
+                                <img
+                                    src={myList.client_img}
+                                    alt="Client Image" className="circlaImg"/>
+                                <h4 className="serviceName">{myList.client_title}</h4>
+                                <p className="serviceDescription">{myList.client_description}</p>
+                            </Col>
+                        </Row>
+                    </Fragment>
+                );
+            })
 
-        const myView = myList.map(myList => {
             return (
                 <Fragment>
-                    <Row className="text-center justify-content-center">
-                        <Col lg={8} md={8} sm={12}>
-                            <img
-                                src={myList.client_img}
-                                alt="Client Image" className="circlaImg"/>
-                            <h4 className="serviceName">{myList.client_title}</h4>
-                            <p className="serviceDescription">{myList.client_description}</p>
-                        </Col>
-                    </Row>
+                    <Container>
+                        <Row>
+                            <Col lg={12} className="text-center">
+                                <h2 className="serviceMainTitle text-center">CLIENT SAYS</h2>
+                            </Col>
+                        </Row>
+
+
+                        <Slider {...settings}>
+                            {myView}
+                        </Slider>
+                    </Container>
                 </Fragment>
             );
-        })
-
-        return (
-            <Fragment>
-                <Container>
-                    <Row>
-                        <Col lg={12} className="text-center">
-                            <h2 className="serviceMainTitle text-center">CLIENT SAYS</h2>
-                        </Col>
-                    </Row>
-
-
-                    <Slider {...settings}>
-                        {myView}
-                    </Slider>
-                </Container>
-            </Fragment>
-        );
+        }
     }
 }
 

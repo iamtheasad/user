@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react';
 import {Col, Container, Row} from "react-bootstrap";
 import RestClient from "../../RestAPI/RestClient";
 import AppUrl from "../../RestAPI/AppUrl";
+import Loader from "../Loader/Loader";
 
 
 class Services extends Component {
@@ -9,48 +10,53 @@ class Services extends Component {
     constructor() {
         super();
         this.state = {
-            myData: []
+            myData: [],
+            loading: true
         }
     }
 
     componentDidMount() {
         RestClient.GetRequest(AppUrl.Services).then(result => {
             this.setState({
-                myData: result
+                myData: result,
+                loading: false
             })
         })
     }
 
     render() {
+        if (this.state.loading == true) {
+            return <Loader/>
+        } else {
+            const myList = this.state.myData;
 
-        const myList = this.state.myData;
+            const myView = myList.map(myList => {
+                return (
+                    <Col lg={4} md={6} sm={12}>
+                        <div className="text-center serviceCard">
+                            <img src={myList.service_logo}/>
+                            <h2 className="serviceName">{myList.service_name}</h2>
+                            <p className="serviceDescription">{myList.service_description}</p>
+                        </div>
+                    </Col>
+                );
+            });
 
-        const myView = myList.map(myList => {
             return (
-                <Col lg={4} md={6} sm={12}>
-                    <div className="text-center serviceCard">
-                        <img src={myList.service_logo}/>
-                        <h2 className="serviceName">{myList.service_name}</h2>
-                        <p className="serviceDescription">{myList.service_description}</p>
-                    </div>
-                </Col>
-            );
-        })
-
-        return (
-            <Fragment>
-                <Container>
-                    <Row>
-                        <Col lg={12} className="text-center">
-                            <h2 className="serviceMainTitle text-center">My Services</h2>
-                        </Col>
-                    </Row>
-                    <Row>
-                        {myView}
-                    </Row>
-                </Container>
-            </Fragment>
-        )
+                <Fragment>
+                    <Container>
+                        <Row>
+                            <Col lg={12} className="text-center">
+                                <h2 className="serviceMainTitle text-center">My Services</h2>
+                            </Col>
+                        </Row>
+                        <Row>
+                            {myView}
+                        </Row>
+                    </Container>
+                </Fragment>
+            )
+        }
     }
 }
 
