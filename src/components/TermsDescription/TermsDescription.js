@@ -4,6 +4,7 @@ import Col from "react-bootstrap/Col";
 import RestClient from "../../RestAPI/RestClient";
 import AppUrl from "../../RestAPI/AppUrl";
 import ReactHtmlParser from 'react-html-parser';
+import Loader from "../Loader/Loader";
 
 
 class TermsDescription extends Component {
@@ -12,34 +13,40 @@ class TermsDescription extends Component {
         super();
 
         this.state = {
-            desc: '...'
+            desc: '...',
+            loading: true
         }
     }
 
     componentDidMount() {
         RestClient.GetRequest(AppUrl.Information).then(result => {
             this.setState({
-                desc: result[0]['terms']
+                desc: result[0]['terms'],
+                loading: false
             });
         })
     }
 
     render() {
-        return (
-            <Fragment>
-                <Container className="mt-5">
-                    <Row>
-                        <Col>
-                            <ul>
-                                <li>
-                                    {ReactHtmlParser(this.state.desc)}
-                                </li>
-                            </ul>
-                        </Col>
-                    </Row>
-                </Container>
-            </Fragment>
-        );
+        if (this.state.loading==true) {
+            return (<Loader/>);
+        } else {
+            return (
+                <Fragment>
+                    <Container className="mt-5">
+                        <Row>
+                            <Col>
+                                <ul>
+                                    <li>
+                                        {ReactHtmlParser(this.state.desc)}
+                                    </li>
+                                </ul>
+                            </Col>
+                        </Row>
+                    </Container>
+                </Fragment>
+            );
+        }
     }
 }
 
