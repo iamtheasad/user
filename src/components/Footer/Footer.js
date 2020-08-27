@@ -6,6 +6,7 @@ import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { Link, NavLink } from "react-router-dom";
 import RestClient from '../../RestAPI/RestClient';
 import AppUrl from '../../RestAPI/AppUrl';
+import Loader from "../Loader/Loader";
 
 class Footer extends Component {
 
@@ -18,7 +19,9 @@ class Footer extends Component {
             phone: '...',
             facebook: '...',
             youtube: '...',
-            footer_credit: '...'
+            footer_credit: '...',
+            loaderClass: 'd-block',
+            mainDivClass: 'd-none'
         }
     }
 
@@ -31,7 +34,9 @@ class Footer extends Component {
                 phone:result[0]['phone'],
                 facebook:result[0]['facebook'],
                 youtube:result[0]['youtube'],
-                footer_credit:result[0]['footer_credit']
+                footer_credit:result[0]['footer_credit'],
+                loaderClass: 'd-none',
+                mainDivClass: 'd-block, p-5'
             })
         })
     }
@@ -49,7 +54,13 @@ class Footer extends Component {
                             <a className="socialLink d-block" href={"//"+this.state.youtube}
                                 target="_blank"><span className="mr-1"><FontAwesomeIcon icon={faYoutube} /></span> YouTube</a>
                         </Col>
-                        <Col lg={3} md={6} sm={12} className="p-5">
+
+                        <Col lg={3} md={6} sm={12} className={this.state.loaderClass}>
+                            <h4 className="serviceName">Address</h4>
+                            <Loader/>
+                        </Col>
+
+                        <Col lg={3} md={6} sm={12} className={this.state.mainDivClass}>
                             <h4 className="serviceName">Address</h4>
                             <p className="serviceDescription"> {this.state.address}</p>
                             <p className="serviceDescription"><span className="mr-1"><FontAwesomeIcon
@@ -57,6 +68,7 @@ class Footer extends Component {
                             <p className="serviceDescription"><span className="mr-1"><FontAwesomeIcon
                                 icon={faPhone} /></span> {this.state.phone}</p>
                         </Col>
+
                         <Col lg={3} md={6} sm={12} className="p-5">
                             <h4 className="serviceName">Information</h4>
 
