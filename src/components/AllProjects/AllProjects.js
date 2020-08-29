@@ -22,7 +22,8 @@ class AllProjects extends Component {
         RestClient.GetRequest(AppUrl.ProjectAll).then(result => {
             if (result == null) {
                 this.setState({
-                    error: true
+                    error: true,
+                    loading: false
                 });
             } else {
                 this.setState({
@@ -32,16 +33,17 @@ class AllProjects extends Component {
             }
         }).catch(error => {
             this.setState({
-                error: true
+                error: true,
+                loading: false
             });
         });
     }
 
     render() {
 
-        if (this.state.loading == true) {
-            return (<Loader/>)
-        } else if (this.state.loading == false) {
+        if (this.state.loading == true && this.state.error == false) {
+            return (<Loader/>);
+        } else if (this.state.loading == false && this.state.error == false) {
             const myList = this.state.myData;
             const myView = myList.map(myList => {
                 return (

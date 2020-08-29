@@ -26,18 +26,18 @@ class AboutDescription extends Component {
                 this.setState({
                     error: true,
                     loading: false
-                })
+                });
             } else {
                 this.setState({
                     desc: result[0]['about'],
                     loading: false
-                })
+                });
             }
         }).catch(error => {
             this.setState({
                 error: true,
                 loading: false
-            })
+            });
         })
     }
 

@@ -25,7 +25,8 @@ class ContactSection extends Component {
         RestClient.GetRequest(AppUrl.Footer).then(result => {
             if (result == null) {
                 this.setState({
-                    error: true
+                    error: true,
+                    loading: false
                 });
             } else {
                 this.setState({
@@ -37,7 +38,8 @@ class ContactSection extends Component {
             }
         }).catch(error => {
             this.setState({
-                error: true
+                error: true,
+                loading: false
             });
         });
     }
@@ -58,9 +60,9 @@ class ContactSection extends Component {
 
 
     render() {
-        if (this.state.loading == true) {
+        if (this.state.loading == true && this.state.error == false) {
             return (<Loader/>);
-        } else if (this.state.loading == false) {
+        } else if (this.state.loading == false && this.state.error == false) {
             return (
                 <Fragment>
                     <Container className="mt-5">

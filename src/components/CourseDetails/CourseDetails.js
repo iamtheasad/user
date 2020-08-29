@@ -33,7 +33,8 @@ class CourseDetails extends Component {
             .then(result => {
                 if (result == null) {
                     this.setState({
-                        error: true
+                        error: true,
+                        loading: false
                     });
                 } else {
                     this.setState({
@@ -50,15 +51,16 @@ class CourseDetails extends Component {
                 }
             }).catch(error => {
             this.setState({
-                error: true
+                error: true,
+                loading: false
             });
         });
     }
 
     render() {
-        if (this.state.loading == true) {
-            return <Loader/>
-        } else if (this.state.loading == false) {
+        if (this.state.loading == true && this.state.error == false) {
+            return (<Loader/>);
+        } else if (this.state.loading == false && this.state.error == false) {
             return (
                 <Fragment>
                     <Container fluid={true} className="topFixedBanner topPageBanner p-0">

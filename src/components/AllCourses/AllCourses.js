@@ -22,8 +22,9 @@ class AllCourses extends Component {
         RestClient.GetRequest(AppUrl.CourseAll).then(result => {
             if (result == null) {
                 this.setState({
-                    error: true
-                })
+                    error: true,
+                    loading: false
+                });
             } else {
                 this.setState({
                     myData: result,
@@ -32,15 +33,16 @@ class AllCourses extends Component {
             }
         }).catch(error => {
             this.setState({
-                error: true
-            })
+                error: true,
+                loading: false
+            });
         })
     }
 
     render() {
-        if (this.state.loading == true) {
+        if (this.state.loading == true && this.state.error == false) {
             return (<Loader/>);
-        } else if (this.state.loading == false) {
+        } else if (this.state.loading == false && this.state.error == false) {
             const myList = this.state.myData;
             const myView = myList.map(myList => {
                 return (

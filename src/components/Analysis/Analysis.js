@@ -23,7 +23,8 @@ class Analysis extends Component {
         RestClient.GetRequest(AppUrl.ChartData).then(result => {
             if (result == null) {
                 this.setState({
-                    error: true
+                    error: true,
+                    loading: false
                 });
             } else {
                 this.setState({
@@ -33,7 +34,8 @@ class Analysis extends Component {
             }
         }).catch(error => {
             this.setState({
-                error: true
+                error: true,
+                loading: false
             });
         });
 
@@ -58,9 +60,9 @@ class Analysis extends Component {
     render() {
         var blue = "rgba(0,115,230,0.7)";
 
-        if (this.state.loading == true) {
-            return <Loader/>
-        } else if (this.state.loading == false) {
+        if (this.state.loading == true && this.state.error == false) {
+            return (<Loader/>);
+        } else if (this.state.loading == false && this.state.error == false) {
             return (
                 <Fragment>
                     <Container>
