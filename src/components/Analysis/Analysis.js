@@ -5,6 +5,7 @@ import RestClient from "../../RestAPI/RestClient";
 import AppUrl from "../../RestAPI/AppUrl";
 import ReactHtmlParser from 'react-html-parser';
 import Loader from "../Loader/Loader";
+import WentWrong from "../WentWrong/WentWrong";
 
 class Analysis extends Component {
 
@@ -13,21 +14,42 @@ class Analysis extends Component {
         this.state = {
             data: [],
             desc: '...',
-            loading: true
+            loading: true,
+            error: false
         }
     }
 
     componentDidMount() {
         RestClient.GetRequest(AppUrl.ChartData).then(result => {
+            if (result == null) {
+                this.setState({
+                    error: true
+                });
+            } else {
+                this.setState({
+                    data: result,
+                    loading: false
+                });
+            }
+        }).catch(error => {
             this.setState({
-                data: result,
-                loading: false
-            })
+                error: true
+            });
         });
 
         RestClient.GetRequest(AppUrl.TechDesc).then(result => {
+            if (result == null) {
+                this.setState({
+                    error: true
+                })
+            } else {
+                this.setState({
+                    desc: result[0]['tech_description']
+                });
+            }
+        }).catch(error => {
             this.setState({
-                desc: result[0]['tech_description']
+                error: true
             })
         })
 
@@ -38,7 +60,7 @@ class Analysis extends Component {
 
         if (this.state.loading == true) {
             return <Loader/>
-        } else {
+        } else if (this.state.loading == false) {
             return (
                 <Fragment>
                     <Container>
@@ -68,6 +90,8 @@ class Analysis extends Component {
                     </Container>
                 </Fragment>
             );
+        } else if (this.state.error == true) {
+            return <WentWrong/>
         }
     }
 }
