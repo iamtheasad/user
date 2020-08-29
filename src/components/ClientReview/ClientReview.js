@@ -6,6 +6,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import RestClient from "../../RestAPI/RestClient";
 import AppUrl from "../../RestAPI/AppUrl";
 import Loader from "../Loader/Loader";
+import WentWrong from "../WentWrong/WentWrong";
 
 class ClientReview extends Component {
 
@@ -13,17 +14,28 @@ class ClientReview extends Component {
         super();
         this.state = {
             myData: [],
-            loading: true
+            loading: true,
+            error: false
         }
     }
 
     componentDidMount() {
         RestClient.GetRequest(AppUrl.ClientReview).then(result => {
+            if (result == null) {
+                this.setState({
+                    error: true
+                })
+            } else {
+                this.setState({
+                    myData: result,
+                    loading: false
+                });
+            }
+        }).catch(error => {
             this.setState({
-                myData: result,
-                loading: false
-            })
-        })
+                error: true
+            });
+        });
     }
 
     render() {
@@ -69,7 +81,7 @@ class ClientReview extends Component {
 
         if (this.state.loading == true) {
             return <Loader/>
-        } else {
+        } else if (this.state.loading == false) {
             const myList = this.state.myData;
 
             const myView = myList.map(myList => {
@@ -104,6 +116,8 @@ class ClientReview extends Component {
                     </Container>
                 </Fragment>
             );
+        } else if (this.state.error == true) {
+            return <WentWrong/>
         }
     }
 }
