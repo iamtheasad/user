@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import RestClient from "../../RestAPI/RestClient";
 import AppUrl from "../../RestAPI/AppUrl";
 import Loader from "../Loader/Loader";
+import WentWrong from "../WentWrong/WentWrong";
 
 class AllProjects extends Component {
 
@@ -12,24 +13,35 @@ class AllProjects extends Component {
 
         this.state = {
             myData: [],
-            loading: true
+            loading: true,
+            error: false
         }
     }
 
     componentDidMount() {
         RestClient.GetRequest(AppUrl.ProjectAll).then(result => {
+            if (result == null) {
+                this.setState({
+                    error: true
+                });
+            } else {
+                this.setState({
+                    myData: result,
+                    loading: false
+                });
+            }
+        }).catch(error => {
             this.setState({
-                myData: result,
-                loading: false
-            })
-        })
+                error: true
+            });
+        });
     }
 
     render() {
 
         if (this.state.loading == true) {
             return (<Loader/>)
-        } else {
+        } else if (this.state.loading == false) {
             const myList = this.state.myData;
             const myView = myList.map(myList => {
                 return (
@@ -60,6 +72,8 @@ class AllProjects extends Component {
                     </Container>
                 </Fragment>
             );
+        } else if (this.state.error == true) {
+            return <WentWrong/>
         }
     }
 }
