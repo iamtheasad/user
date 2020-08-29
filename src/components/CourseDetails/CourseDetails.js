@@ -5,6 +5,7 @@ import ReactHtmlParser from 'react-html-parser';
 import RestClient from "../../RestAPI/RestClient";
 import AppUrl from "../../RestAPI/AppUrl";
 import Loader from "../Loader/Loader";
+import WentWrong from "../WentWrong/WentWrong";
 
 class CourseDetails extends Component {
 
@@ -21,7 +22,8 @@ class CourseDetails extends Component {
             VideoUrl: " ",
             MoreInforUrl: " ",
             SkillAll: " ",
-            loading: true
+            loading: true,
+            error: false
 
         }
     }
@@ -29,7 +31,12 @@ class CourseDetails extends Component {
     componentDidMount() {
         RestClient.GetRequest(AppUrl.CourseDetails + this.state.MyCourseID)
             .then(result => {
-                this.setState({
+                if (result == null) {
+                    this.setState({
+                        error: true
+                    });
+                } else {
+                    this.setState({
                         LongTitle: result[0]['long_title'],
                         TotalLecture: result[0]['total_lecture'],
                         TotalStudent: result[0]['total_student'],
@@ -39,17 +46,19 @@ class CourseDetails extends Component {
                         MoreInforUrl: result[0]['courses_link'],
                         SkillAll: result[0]['skill_all'],
                         loading: false
-                    }
-                )
+                    });
+                }
             }).catch(error => {
-
+            this.setState({
+                error: true
+            });
         });
     }
 
     render() {
         if (this.state.loading == true) {
             return <Loader/>
-        } else {
+        } else if (this.state.loading == false) {
             return (
                 <Fragment>
                     <Container fluid={true} className="topFixedBanner topPageBanner p-0">
@@ -87,6 +96,8 @@ class CourseDetails extends Component {
                     </Container>
                 </Fragment>
             );
+        } else if (this.state.error == true) {
+            return <WentWrong/>
         }
     }
 }
