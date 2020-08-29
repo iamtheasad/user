@@ -5,6 +5,7 @@ import {faEnvelope, faPhone} from "@fortawesome/free-solid-svg-icons";
 import RestClient from '../../RestAPI/RestClient';
 import AppUrl from '../../RestAPI/AppUrl';
 import Loader from "../Loader/Loader";
+import WentWrong from "../WentWrong/WentWrong";
 
 class ContactSection extends Component {
 
@@ -15,19 +16,30 @@ class ContactSection extends Component {
             address: '...',
             email: '...',
             phone: '...',
-            loading: true
+            loading: true,
+            error: false
         }
     }
 
     componentDidMount() {
         RestClient.GetRequest(AppUrl.Footer).then(result => {
+            if (result == null) {
+                this.setState({
+                    error: true
+                });
+            } else {
+                this.setState({
+                    address: result[0]['address'],
+                    email: result[0]['email'],
+                    phone: result[0]['phone'],
+                    loading: false
+                });
+            }
+        }).catch(error => {
             this.setState({
-                address: result[0]['address'],
-                email: result[0]['email'],
-                phone: result[0]['phone'],
-                loading: false
-            })
-        })
+                error: true
+            });
+        });
     }
 
     contactSend() {
@@ -48,7 +60,7 @@ class ContactSection extends Component {
     render() {
         if (this.state.loading == true) {
             return (<Loader/>);
-        } else {
+        } else if (this.state.loading == false) {
             return (
                 <Fragment>
                     <Container className="mt-5">
@@ -87,6 +99,8 @@ class ContactSection extends Component {
                     </Container>
                 </Fragment>
             );
+        } else if (this.state.error == true) {
+            return <WentWrong/>
         }
     }
 }
