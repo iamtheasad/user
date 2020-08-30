@@ -38,7 +38,7 @@ class AboutDescription extends Component {
                 error: true,
                 loading: false
             });
-        })
+        });
     }
 
     render() {

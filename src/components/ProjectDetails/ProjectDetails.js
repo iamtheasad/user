@@ -4,6 +4,7 @@ import RestClient from "../../RestAPI/RestClient";
 import AppUrl from "../../RestAPI/AppUrl";
 import ReactHtmlParser from "react-html-parser";
 import Loader from "../Loader/Loader";
+import WentWrong from "../WentWrong/WentWrong";
 
 class ProjectDetails extends Component {
 
@@ -17,30 +18,41 @@ class ProjectDetails extends Component {
             project_features: ' ',
             live_preview: ' ',
             project_name: ' ',
-            loading: true
+            loading: true,
+            error: false
         }
     }
 
     componentDidMount() {
         RestClient.GetRequest(AppUrl.ProjectDetails + this.state.MyProjectID)
             .then(result => {
-                this.setState({
-                    img_two: result[0]['img_two'],
-                    short_description: result[0]['short_description'],
-                    project_features: result[0]['project_features'],
-                    live_preview: result[0]['live_preview'],
-                    project_name: result[0]['project_name'],
-                    loading: false
-                })
+                if (result == null) {
+                    this.setState({
+                        error: true,
+                        loading: false
+                    });
+                } else {
+                    this.setState({
+                        img_two: result[0]['img_two'],
+                        short_description: result[0]['short_description'],
+                        project_features: result[0]['project_features'],
+                        live_preview: result[0]['live_preview'],
+                        project_name: result[0]['project_name'],
+                        loading: false
+                    });
+                }
             }).catch(error => {
-            return null;
+            this.setState({
+                error: true,
+                loading: false
+            });
         });
     }
 
     render() {
-        if (this.state.loading == true) {
-            return <Loader/>
-        } else {
+        if (this.state.loading == true && this.state.error == false) {
+            return (<Loader/>);
+        } else if (this.state.loading == false && this.state.error == false) {
             return (
                 <Fragment>
                     <Container className="mt-5">
@@ -59,6 +71,8 @@ class ProjectDetails extends Component {
                     </Container>
                 </Fragment>
             );
+        } else if (this.state.error == true) {
+            return <WentWrong/>
         }
     }
 }

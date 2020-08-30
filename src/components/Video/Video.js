@@ -7,6 +7,7 @@ import "video-react/dist/video-react.css";
 import RestClient from "../../RestAPI/RestClient";
 import AppUrl from "../../RestAPI/AppUrl";
 import Loader from "../Loader/Loader";
+import WentWrong from "../WentWrong/WentWrong";
 
 class Video extends Component {
     constructor() {
@@ -16,18 +17,31 @@ class Video extends Component {
             show: false,
             video_description: '',
             video_url: '',
-            loading: true
+            loading: true,
+            error: false
         }
     }
 
     componentDidMount() {
         RestClient.GetRequest(AppUrl.VideoHome).then(result => {
+            if (result == null) {
+                this.setState({
+                    error: true,
+                    loading: false
+                });
+            } else {
+                this.setState({
+                    video_description: result[0]['video_description'],
+                    video_url: result[0]['video_url'],
+                    loading: false
+                });
+            }
+        }).catch(error => {
             this.setState({
-                video_description: result[0]['video_description'],
-                video_url: result[0]['video_url'],
+                error: true,
                 loading: false
-            })
-        })
+            });
+        });
     }
 
     modalClose = () => this.setState({show: false});
@@ -35,9 +49,9 @@ class Video extends Component {
 
     render() {
 
-        if (this.state.loading == true) {
-            return <Loader/>
-        } else {
+        if (this.state.loading == true && this.state.error == false) {
+            return (<Loader/>);
+        } else if (this.state.loading == false && this.state.error == false) {
             return (
                 <Fragment>
                     <Container>
@@ -72,6 +86,8 @@ class Video extends Component {
 
                 </Fragment>
             );
+        } else if (this.state.error == true) {
+            return <WentWrong/>
         }
     }
 }

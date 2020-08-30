@@ -3,6 +3,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import RestClient from "../../RestAPI/RestClient";
 import AppUrl from "../../RestAPI/AppUrl";
 import Loader from "../Loader/Loader";
+import WentWrong from "../WentWrong/WentWrong";
 
 
 class Services extends Component {
@@ -11,23 +12,36 @@ class Services extends Component {
         super();
         this.state = {
             myData: [],
-            loading: true
+            loading: true,
+            error: false
         }
     }
 
     componentDidMount() {
         RestClient.GetRequest(AppUrl.Services).then(result => {
+            if (result == null) {
+                this.setState({
+                    error: true,
+                    loading: false
+                });
+            } else {
+                this.setState({
+                    myData: result,
+                    loading: false
+                });
+            }
+        }).catch(error => {
             this.setState({
-                myData: result,
+                error: true,
                 loading: false
-            })
-        })
+            });
+        });
     }
 
     render() {
-        if (this.state.loading == true) {
-            return <Loader/>
-        } else {
+        if (this.state.loading == true && this.state.error == false) {
+            return (<Loader/>);
+        } else if (this.state.loading == false && this.state.error == false) {
             const myList = this.state.myData;
 
             const myView = myList.map(myList => {
@@ -56,6 +70,8 @@ class Services extends Component {
                     </Container>
                 </Fragment>
             )
+        } else if (this.state.error == true) {
+            return <WentWrong/>
         }
     }
 }
