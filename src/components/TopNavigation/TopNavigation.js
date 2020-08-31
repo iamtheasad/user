@@ -4,6 +4,7 @@ import whiteLogo from '../../asset/image/navLogo.png';
 import blueLogo from '../../asset/image/navLogoScroll.png';
 import '../../asset/css/custom.css';
 import '../../asset/css/bootstrap.min.css';
+import '../../asset/css/responsive.css';
 import {NavLink} from "react-router-dom";
 
 
