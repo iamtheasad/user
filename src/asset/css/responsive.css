@@ -1,76 +1,119 @@
- /*Extra small devices (portrait phones, less than 576px)*/
+/*Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
     .topTitle {
         font-size: 22px;
     }
+
     .topSubTitle {
         font-size: 16px;
     }
+
     .navLogoLarg {
         width: 100px;
     }
+
     .LoaderAnimation {
         width: 100px;
         height: 100px;
     }
+
     .serviceName {
         font-size: 18px;
     }
+
     .serviceMainTitle {
         font-size: 22px;
     }
+
     .countNumber {
         font-size: 32px;
     }
+
     .countTitle {
         font-size: 20px;
     }
+
     .summeryBanner {
         min-height: 450px;
     }
+
     .workCard {
         width: 100%;
         text-align: center;
     }
 
+    .video_section {
+        padding: 50px 0px;
+    }
+
+    .videoDes {
+        font-size: 14px;
+    }
+
+    .footerSection {
+        margin-bottom: 30px;
+    }
+
 }
 
- /*Small devices (landscape phones, 576px and up)*/
+/*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) and (max-width: 767.98px) {
     .topTitle {
         font-size: 28px;
     }
+
     .topSubTitle {
         font-size: 18px;
     }
+
     .LoaderAnimation {
         width: 120px;
         height: 120px;
     }
+
     .serviceName {
         font-size: 18px;
     }
+
     .serviceMainTitle {
         font-size: 24px;
     }
+
     .countNumber {
         font-size: 32px;
     }
+
     .summeryBanner {
         min-height: 440px;
     }
+
     .workCard {
         width: 100%;
         text-align: center;
     }
 
+    .video_section {
+        padding: 50px 0px;
+    }
+
+    .videoDes {
+        font-size: 14px;
+    }
+
+    .footerSection {
+        margin-bottom: 30px;
+    }
+
 }
 
- /*Medium devices (tablets, 768px and up)*/
-@media (min-width: 768px) and (max-width: 991.98px) {  }
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
 
 /*Large devices (desktops, 992px and up)*/
-@media (min-width: 992px) and (max-width: 1199.98px) {  }
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
 
 /*Extra large devices (large desktops, 1200px and up)*/
-@media (min-width: 1200px) {  }
+@media (min-width: 1200px) {
+}

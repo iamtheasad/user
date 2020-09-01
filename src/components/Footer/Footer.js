@@ -43,7 +43,7 @@ class Footer extends Component {
                     youtube: result[0]['youtube'],
                     footer_credit: result[0]['footer_credit'],
                     loaderClass: 'd-none',
-                    mainDivClass: 'd-block, p-5'
+                    mainDivClass: 'd-block, p-5, p-sm-3'
                 })
             }
         }).catch(error => {
@@ -58,54 +58,54 @@ class Footer extends Component {
             return (
                 <Fragment>
                     <Container fluid className="footerSection">
-                        <Row>
-                            <Col lg={3} md={6} sm={12} className="p-5">
-                                <h4 className="serviceName">Follow Me</h4>
-                                <a className="socialLink d-block" href={"//" + this.state.facebook}
-                                   target="_blank">
-                                    <span className="mr-1"><FontAwesomeIcon icon={faFacebook}/></span> Facebook</a>
-                                <a className="socialLink d-block" href={"//" + this.state.youtube}
-                                   target="_blank"><span className="mr-1"><FontAwesomeIcon
-                                    icon={faYoutube}/></span> YouTube</a>
-                            </Col>
+                            <Row>
+                                <Col lg={3} md={6} sm={12} className="p-sm-3 p-md-5">
+                                    <h4 className="serviceName">Follow Me</h4>
+                                    <a className="socialLink d-block" href={"//" + this.state.facebook}
+                                       target="_blank">
+                                        <span className="mr-1"><FontAwesomeIcon icon={faFacebook}/></span> Facebook</a>
+                                    <a className="socialLink d-block" href={"//" + this.state.youtube}
+                                       target="_blank"><span className="mr-1"><FontAwesomeIcon
+                                        icon={faYoutube}/></span> YouTube</a>
+                                </Col>
 
-                            <Col lg={3} md={6} sm={12} className={this.state.loaderClass}>
-                                <h4 className="serviceName">Address</h4>
-                                <Loader/>
-                            </Col>
+                                <Col lg={3} md={6} sm={12} className={this.state.loaderClass}>
+                                    <h4 className="serviceName">Address</h4>
+                                    <Loader/>
+                                </Col>
 
-                            <Col lg={3} md={6} sm={12} className={this.state.mainDivClass}>
-                                <h4 className="serviceName">Address</h4>
-                                <p className="serviceDescription"> {this.state.address}</p>
-                                <p className="serviceDescription"><span className="mr-1"><FontAwesomeIcon
-                                    icon={faEnvelope}/></span> {this.state.email}</p>
-                                <p className="serviceDescription"><span className="mr-1"><FontAwesomeIcon
-                                    icon={faPhone}/></span> {this.state.phone}</p>
-                            </Col>
+                                <Col lg={3} md={6} sm={12} className={this.state.mainDivClass}>
+                                    <h4 className="serviceName">Address</h4>
+                                    <p className="serviceDescription"> {this.state.address}</p>
+                                    <p className="serviceDescription"><span className="mr-1"><FontAwesomeIcon
+                                        icon={faEnvelope}/></span> {this.state.email}</p>
+                                    <p className="serviceDescription"><span className="mr-1"><FontAwesomeIcon
+                                        icon={faPhone}/></span> {this.state.phone}</p>
+                                </Col>
 
-                            <Col lg={3} md={6} sm={12} className="p-5">
-                                <h4 className="serviceName">Information</h4>
+                                <Col lg={3} md={6} sm={12} className="p-sm-3 p-md-5">
+                                    <h4 className="serviceName">Information</h4>
 
-                                <Link to="/about" className="d-block footerLink">About Me</Link>
-                                <Link to="/contact" className="d-block footerLink">Contact Me</Link>
-                            </Col>
-                            <Col lg={3} md={6} sm={12} className="p-5">
-                                <h4 className="serviceName">Legal</h4>
+                                    <Link to="/about" className="d-block footerLink">About Me</Link>
+                                    <Link to="/contact" className="d-block footerLink">Contact Me</Link>
+                                </Col>
+                                <Col lg={3} md={6} sm={12} className="p-sm-3 p-md-5">
+                                    <h4 className="serviceName">Legal</h4>
 
-                                <Link to="/refund" className="d-block footerLink">Refund Policy</Link>
-                                <Link to="/terms" className="d-block footerLink">Terms And Condition</Link>
-                                <NavLink to="/privacy" className="d-block footerLink"> Privacy Policy</NavLink>
-                            </Col>
-                        </Row>
-                    </Container>
+                                    <Link to="/refund" className="d-block footerLink">Refund Policy</Link>
+                                    <Link to="/terms" className="d-block footerLink">Terms And Condition</Link>
+                                    <NavLink to="/privacy" className="d-block footerLink"> Privacy Policy</NavLink>
+                                </Col>
+                            </Row>
+                        </Container>
 
-                    <Container fluid={true} className="text-center copyrightSection">
-                        <Row>
-                            <Col lg={12}>
-                                <a href="https://www.linkedin.com/in/iamtheasad/" target="_blank"
-                                   className=" copyrightLink">{this.state.footer_credit} </a>
-                            </Col>
-                        </Row>
+                        <Container fluid={true} className="text-center copyrightSection">
+                            <Row>
+                                <Col lg={12}>
+                                    <a href="https://www.linkedin.com/in/iamtheasad/" target="_blank"
+                                       className=" copyrightLink">{this.state.footer_credit} </a>
+                                </Col>
+                            </Row>
                     </Container>
                 </Fragment>
             );
