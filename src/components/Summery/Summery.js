@@ -12,8 +12,8 @@ class Summery extends Component {
             <Fragment>
                 <Container fluid={true} className="summeryBanner summery_section p-0">
                     <div className="summeryOverlay">
-                        <Container>
-                            <Row>
+                        <Container className="summeryContainer">
+                            <Row className="summeryPosition">
                                 <Col lg={8} md={6} sm={12}>
                                     <Row className="countSection text-center">
                                         <Col>
