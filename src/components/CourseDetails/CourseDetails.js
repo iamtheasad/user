@@ -66,7 +66,7 @@ class CourseDetails extends Component {
                     <Container fluid={true} className="topFixedBanner topPageBanner p-0">
                         <div className="topBannerOverlay topPageBannerOverlay">
                             <Container className="topPageContentCours">
-                                <Row>
+                                <Row className="pb-sm-4 pt-sm-4">
                                     <Col sm={12} md={6} lg={6}>
                                         <h3 className="courseFullTitle">{this.state.LongTitle}</h3>
                                         <h5 className="courseSubTitle">Total Lecture={this.state.TotalLecture}</h5>
@@ -85,7 +85,7 @@ class CourseDetails extends Component {
                             <Col sm={12} md={6} lg={6}>
                                 <h1 className="serviceName">Skill You Get</h1>
                                 {ReactHtmlParser(this.state.SkillAll)}
-                                <Button href={"//" + this.state.MoreInforUrl} target="_blank" variant="primary">More
+                                <Button className="allCourseButton" href={"//" + this.state.MoreInforUrl} target="_blank" variant="primary">More
                                     Info</Button>
                             </Col>
                             <Col sm={12} md={6} lg={6}>

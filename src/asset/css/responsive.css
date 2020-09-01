@@ -54,6 +54,26 @@
         margin-bottom: 30px;
     }
 
+    .courseFullTitle {
+        padding-top: 20px;
+        font-size: 20px;
+    }
+
+    .courseSubTitle {
+        font-size: 14px;
+    }
+
+    .courseDesDetails {
+        color: #fff;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 400;
+        font-size: 13px;
+    }
+
+    .allCourseButton {
+        margin-bottom: 30px;
+    }
+
 }
 
 /*Small devices (landscape phones, 576px and up)*/
@@ -104,6 +124,9 @@
         margin-bottom: 30px;
     }
 
+    .allCourseButton {
+        margin-bottom: 30px;
+    }
 }
 
 /*Medium devices (tablets, 768px and up)*/
