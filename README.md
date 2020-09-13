@@ -3,6 +3,7 @@
  - **All Browser Supported**
  - **All Data Are Loading From Database**
  - **Laravel Rest-api used here**
+ - **Database Hosted in Heroku**
  
 ===============================
 
